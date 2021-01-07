@@ -24,7 +24,9 @@
     <div class="form-group">
       <%= f.label :password_confirmation, 'パスワード (確認用)' %>
       <%= f.password_field :password_confirmation, class: 'form-control' %>
-      <% end %>
     </div>
+      <%= f.submit '登録', class: 'btn btn-secondary w-150px' %>
+      <% end %>
+    <p><%= link_to 'ログインの方はこちら', login_path %></p>
   </div>
 </div>
