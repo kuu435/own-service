@@ -1,0 +1,14 @@
+<div class="content-box">
+  <P class="text"><%= @post.content %></P>
+  <P class="img"><%= image_tag (@post.img.to_s), :size => "500x270" if @post.img? %></P>
+</div>
+<div class='button'>
+  <%= link_to "アクセス", (h(@post.url)).html_safe, class: 'btn btn-primary btn-sm' %>
+  <% if current_user == @post.user %>
+    <%= link_to "削除", @post, method: :delete, data: { confirm: "You sure?" }, class: 'btn btn-danger btn-sm' %>
+    <%= link_to "編集", @post_edit_path, class: 'btn btn-warning btn-sm' %>
+  <% end %>
+</div>
+
+
+

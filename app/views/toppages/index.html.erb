@@ -1,5 +1,8 @@
 <% if logged_in? %>
   <p>ログイン完了ユーザ: <%= current_user.name %></p>
+  <div class="col-sm-8">
+    <%= render 'posts/posts', posts: @posts %>
+  </div>
 <% else %>
 
 <div class="text-center">
@@ -9,4 +12,5 @@
     <%= link_to 'ユーザー登録', signup_path, class: 'btn btn-secondary w-150px' %>
   </div>
 </div>
+  <%= render 'posts/posts', posts: @posts%>
 <% end %>
