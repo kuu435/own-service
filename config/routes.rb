@@ -7,13 +7,24 @@ Rails.application.routes.draw do
   
   post 'posts', to: 'posts#create'
   get  'posts', to: 'posts#new'
-  post 'posts/:id/update', to: posts#edit"
+  
   
   get 'posts/:id', to: 'posts#show'
   
+  get 'signup', to: 'users#new' 
+    resources :users, only: [:index, :show, :new, :create]do
+      member do
+        get :favorites
+      end
+    end
+    
+  get 'search', to: 'posts#search'
   
-  get 'signup', to: 'users#new'
+  resources :posts, only: [:create, :edit, :update, :destroy] do
+  resource :comments, only: [:create, :destroy]
+  end 
   
-  resources :users, only: [:index, :show, :new, :create]
+  
   resources :posts, only: [:create, :edit, :update, :destroy]
-end
+  resources :favorites, only: [:create, :destroy]
+ end

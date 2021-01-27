@@ -1,5 +1,17 @@
+<div>
+  <%= form_with url: search_path, method: :get, local: true do |f| %>
+  <div class='search'>
+    <p>キーワード</p>
+    <div class='form'>
+      <%= f.text_field :keyword, :size => '70x1' %>
+      <%= f.submit 'Search', :class=>"btn btn-secondary", :search => nil  %>
+      <% end %>
+    </div>
+  </div>
+</div>
+
 <ul>
-  <% posts.each do |post| %>
+  <% @posts.each do |post| %>
     <li class="media mb-3">
       <div class="media-body">
         <div>

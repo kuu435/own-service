@@ -40,6 +40,8 @@ class PostsController < ApplicationController
   
   def show
     @post = Post.find(params[:id])
+    @comments = @post.comments
+    @comment = current_user.comments.new
   end
   
   def image
@@ -48,6 +50,10 @@ class PostsController < ApplicationController
   
   def url
     @posts = Post.where(user_id: current_user.id).where.not(url: nil)
+  end
+  
+  def search
+    @posts = Post.search(params[:keyword])
   end
 
   private
