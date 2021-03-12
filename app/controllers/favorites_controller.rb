@@ -2,22 +2,18 @@ class FavoritesController < ApplicationController
      before_action :require_user_logged_in
 
 def create
-    user=current_user
-    post=Post.find_by(params[:post_id])
-    if Favorite.create(user_id: user.id,post_id:post.id)
+  post = Post.find(params[:post_id])
+  if current_user.favorite(post)
     flash[:success] = 'お気に入りにしました。'
     redirect_to post
-    else
-      redirect_to root_url
-    end
-
+  else
+    redirect_to root_url
+  end
 end
 
   def destroy
-    user=current_user
-    post=Post.find_by(params[:post_id])
-    if favorite=Favorite.find_by(user_id: user.id,post_id:post.id)
-      favorite.delete
+    post=Post.find(params[:post_id])
+    if current_user.unfavorite(post)
       flash[:success] = 'お気に入りを外しました'
       redirect_to root_path(current_user)
     else

@@ -12,7 +12,7 @@ class User < ApplicationRecord
     has_many :favorite_posts, through:  :favorites, source: :post, dependent: :destroy
     
     has_many :comments, dependent: :destroy
-    def like(post)
+    def favorite(post)
       favorites.find_or_create_by(post_id: post.id)
     end
     
