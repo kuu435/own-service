@@ -1,11 +1,13 @@
-<div>
-  <%= form_with url: search_path, method: :get, local: true do |f| %>
-  <div class='search'>
+<div class='container'>
+  <div class='row'>
+    <%= form_with url: search_path, method: :get, local: true do |f| %>
+    <div class='col-sm-7, search'>
     <p>キーワード</p>
-    <div class='form'>
-      <%= f.text_field :keyword, :size => '70x1' %>
-      <%= f.submit 'Search', :class=>"btn btn-secondary", :search => nil  %>
-      <% end %>
+      <div class='form'>
+        <%= f.text_field :keyword %>
+        <%= f.submit 'Search', :class=>"btn btn-secondary", :search => nil  %>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>

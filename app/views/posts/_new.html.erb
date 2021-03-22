@@ -1,0 +1,39 @@
+<%= content_tag :div, 'NewPost', class: 'nav-link', 'data-toggle': "modal", 'data-target': "#exampleModalLong", style: "cursor:pointer" %>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <h1>投稿</h1>
+            <div class="col-sm-6 offset-sm-3">
+              <div>
+                <%= form_with(model: Post.new, url: posts_path, local: true) do |f| %>
+                <div class="form_group">
+                  <%= f.label :url, 'URL' %>
+                  <p class='url'><%= f.url_field :url, class: 'form_contorol'%></p>
+                </div>
+                
+                <div class="form-group">
+                  <p class='text-post'><%= f.text_area :content, class: 'form-control'%></p>
+                </div>
+                <div>
+                  <%= f.file_field :img, class: "image" %>
+                  <p>※画像をアップロードする場合はこちらからファイルを選択してください</p>
+                </div>
+                <div class="text-center">
+                  <%= f.submit '投稿する', class: 'btn btn-secondary rounded-pill' %>
+                  <% end %>
+                </div>
+              </div>
+            </div>
+        </div>
+    </div>
+  </div>
+</div>

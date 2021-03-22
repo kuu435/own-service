@@ -6,7 +6,6 @@
           <%= link_to post.user.name, user_path(post.user) %> <span class="text-muted">posted at <%= post.created_at %></span>
         </div>
         <div class="box">
-          <p><%= image_tag (post.img.to_s),  :size => "288x162" if post.img? %></p>
           <p class="text"><%= link_to(post.content, "/posts/#{post.id}", class: 'link') %></p>
         </div>
       </div>

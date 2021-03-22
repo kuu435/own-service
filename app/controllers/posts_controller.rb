@@ -24,10 +24,10 @@ class PostsController < ApplicationController
   def update
      @post = Post.find(params[:id])
     if @post.update(post_params)
-      flash[success] = '更新しました。'
+      flash[:success] = '更新しました。'
       redirect_to request.referer
     else
-      flash[danger] = '更新に失敗しました。'
+      flash[:danger] = '更新に失敗しました。'
       render :new
     end
   end

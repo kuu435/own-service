@@ -55,6 +55,7 @@ gem 'kaminari'
 
 gem 'rinku'
 
-gem 'carrierwave', '~> 1.3', '>= 1.3.1'
+gem 'carrierwave'
 gem 'mini_magick'
 
+gem 'jquery-rails'

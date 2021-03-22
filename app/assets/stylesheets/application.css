@@ -16,31 +16,31 @@
 .btn{
     margin-right:30px;
     border-radius:0px;
-    text-shadow:1px 1px #555;
-    color:white;
 }
 .form_group{
     margin-bottom:10px;
 }
 
 .content-box{
-    padding:30px;
-    border:solid 2px; 
+    padding:20px;
     margin:30px;
+    border:solid 2px; 
     margin-bottom:0;
-    display:flex;
-    flex-direction: row;
     word-wrap: break-word;
+    display:flex;
 
 }
-.img{
-    margin:10px;
-    margin-left: auto;
+.content-box .img{
+    width:200px;
+    height:200px;
 }
-
+.image{
+    display:flex;
+    margin:0;
+}
 
 .box{
-    width:700px;
+    
     padding: 0.5em 1em;
     border: solid 3px #000000;
     display:flex;
@@ -48,8 +48,13 @@
     word-wrap: break-word;
 }
 
+.content-box .text{
+    margin-left:30px;
+    font-size:30px;
+    color:black;
+}
 .text{
-    margin-left:10px;
+    margin-left:20px;
     font-size:24px;
     color:black;
 }
@@ -70,13 +75,14 @@
     padding-top:50px;
     padding:30px;
     border:solid 2px; 
-    margin-left:140px;
+    margin-left:auto;
     margin-right:270px;
     margin-bottom:0;
 
 }
 
 .form{
+    width:auto;
     display:flex;
     flex-direction: row;
     word-wrap: break-word;
