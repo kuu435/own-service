@@ -1,7 +1,7 @@
 <div class='container'> 
     <div class="content-box">
       <%= link_to (@post.img.to_s), "data-lightbox" => (@post.img.to_s) do %>
-      <div class='image'><%= image_tag (@post.img.to_s), class: 'img' %></div>
+      <div class='image'><%= image_tag (@post.img.to_s), class: 'img' if @post.img? %></div>
       <% end %>
       <p class="text"><%= @post.content %></p>
     </div>
@@ -18,20 +18,21 @@
       <% end %>
     </div>
   </div>
-
-<div class="comment">
-  <%= form_with(model: [@post, @comment], local: true) do |f| %>
-    <%= f.text_area :content, class: 'comment-form'%>
-    <%= f.submit "コメントする", class: "btn btn-secondary rounded-pill" %>
-  <% end %>
-  </div>
-<h1>コメント一覧</h1>
-<div class="comment-content">
-  <% @comments.each do |comment| %>
-    <div>
-      <strong><%= link_to comment.user.name,user_path(@post.user) %></strong>
-      <br />
-      <p class=""><%= comment.content %></p>
-      <% end %>
+<div class='container'>
+  <div class="comment">
+    <%= form_with(model: [@post, @comment], local: true) do |f| %>
+      <%= f.text_area :content, class: 'comment-form'%>
+      <%= f.submit "コメントする", class: "btn btn-secondary rounded-pill" %>
+    <% end %>
     </div>
+  <h1>コメント一覧</h1>
+  <div class="comment-content">
+    <% @comments.each do |comment| %>
+      <div>
+        <strong><%= link_to comment.user.name,user_path(@post.user) %></strong>
+        <br />
+        <p class=""><%= comment.content %></p>
+        <% end %>
+      </div>
+  </div>
 </div>
