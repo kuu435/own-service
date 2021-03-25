@@ -21,7 +21,7 @@
 
 <div class="comment">
   <%= form_with(model: [@post, @comment], local: true) do |f| %>
-    <%= f.text_area :content  %>
+    <%= f.text_area :content, class: 'comment-form'%>
     <%= f.submit "コメントする", class: "btn btn-secondary rounded-pill" %>
   <% end %>
   </div>

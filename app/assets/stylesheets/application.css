@@ -111,3 +111,8 @@ h1{
     word-wrap: break-word;
     
 }
+.comment-form{
+    width:70%;
+    border:solid 2px; 
+
+}
