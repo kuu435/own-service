@@ -1,5 +1,5 @@
 class ToppagesController < ApplicationController
   def index
-      @posts = Post.all.order(created_at: :desc)
+      @posts = Post.all.order_by(created_at: :desc)
   end
 end
