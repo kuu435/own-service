@@ -3,10 +3,10 @@
     <li class="media mb-3">
       <div class="media-body">
         <div>
-          <%= link_to post.user.name, user_path(post.user), 'data-turbolinks': 'false' %> <span class="text-muted">posted at <%= post.created_at %></span>
+          <%= link_to post.user.name, user_path(post.user) %> <span class="text-muted">posted at <%= post.created_at %></span>
         </div>
         <div class="box">
-          <p class="text"><%= link_to(post.content, "/posts/#{post.id}", class: 'link') %></p>
+          <p class="text"><%= link_to(post.content, "/posts/#{post.id}", data: {"turbolinks" => false}, class: 'link') %></p>
         </div>
       </div>
     </li>
